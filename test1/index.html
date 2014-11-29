@@ -1,89 +1,107 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="viewport" content="width=device-width, user-scalable=no,
-			initial-scale=1, maximum-scale=1, minimum-scale=1" />
-		<link rel="stylesheet" href="css/app.css" />
-		<title>Beacon Finder</title>
-		<script>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes,
+		initial-scale=1.0" />
+
+	<title>Relaxation iBeacons</title>
+
+	<style>
+	@import 'page.css';
+	</style>
+	<script>
 		window.onerror = function(msg, url, linenumber) {
 			alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
 			return true;
 		}
-		</script>
-		
-		<script>
-		if (window.hyper) { console.log = hyper.log; }
+	</script>
+	<script>
+	// Redirect console if running from Evothings Workbench.
+	if (window.hyper) { console.log = hyper.log }
+	</script>
+</head>
 
-		window.onerror = function(msg, url, line)
-		{
-			console.log(msg + ": " + url + ":" + line);
-		};
-		console.log("Hello World!")
-		</script>
-	</head>
-	<body
-		ontouchstart="app.onTouchStart(event)"
-		ontouchmove="app.onTouchMove(event)"
-		ontouchcancel="app.onTouchCancel(event)">
-
-		<div id="id-screen-home" class="style-screen">
-			<div class="style-heading-big style-color-purple">Beacon Finder</div>
-			<div id="id-screen-home-button-scan"
-				class="style-button style-color-blueberry"
-				ontouchend="app.onStartScanning()">Scan Beacons</div>
-			<div class="style-button style-color-yellow"
-				ontouchend="app.onStartRanging()">Range Beacons</div>
-			<div class="style-button style-color-pink"
-				ontouchend="app.onStartMonitoring()">Monitor Beacons</div>
-			<div id="id-screen-home-button-back"
-				class="style-button-back style-color-blueberry"
-				ontouchend="app.onNavigateBack()">Back</div>
+<body>
+	<div class="my-page" id="page-default">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/photo-default.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
 		</div>
-
-		<div id="id-screen-scan" class="style-screen">
-			<div class="style-heading-small style-color-purple">Scanning</div>
-			<div class="style-button-back style-color-blueberry"
-				ontouchend="app.onStopScanning()">Back</div>
-			<div class="style-beacon-list"></div>
+		<div class="my-content">
+			<h1>Relaxation iBeacons</h1>
+			<p>Please move within range of the Relaxation iBeacons.</p>
 		</div>
+	</div>
 
-		<div id="id-screen-range" class="style-screen">
-			<div class="style-heading-small style-color-purple">Ranging</div>
-			<div class="style-button-back style-color-blueberry"
-				ontouchend="app.onStopRanging()">Back</div>
-			<div class="style-beacon-list"></div>
+	<div class="my-page" id="page-feet">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/photo-feet.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
 		</div>
-
-		<div id="id-screen-monitor" class="style-screen">
-			<div class="style-heading-small style-color-purple">Monitoring</div>
-			<div class="style-button-back style-color-blueberry"
-				ontouchend="app.onStopMonitoring()">Back</div>
-			<div class="style-beacon-list"></div>
+		<div class="my-content">
+			<h1>Feel Your Feet</h1>
+			<ul>
+				<li>Stand on your feet.</li>
+				<li>Experience the contact with the ground.</li>
+				<li>Feel into the soles of the feet.</li>
+				<li>Feel the knees.</li>
+				<li>The hips.</li>
+				<li>The spine.</li>
+				<li>Shoulders.</li>
+				<li>Neck.</li>
+				<li>Head.</li>
+				<li>Feel the connection between the top of the head and the feet.</li>
+			</ul>
 		</div>
+	</div>
 
-		<script src="cordova.js"></script>
-		<script src="js/jquery-2.1.1.min.js"></script>
-		<script src="js/app.js"></script>
-		<script>
-		// Hide back button if we referrer is empty.
-		var hasReferrer = document.referrer && document.referrer != '';
-		if (!hasReferrer)
-		{
-      		$('#id-screen-home-button-back').hide();
-      	}
+	<div class="my-page" id="page-shoulders">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/photo-shoulders-1.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1>Feel Your Shoulders</h1>
+			<ul>
+				<li>Let your arms hang loose.</li>
+				<li>Become aware of the shoulders.</li>
+				<li>Slightly lift one shoulder and release it.</li>
+				<li>Let the shoulder come all the way down.</li>
+				<li>Lift the other shoulder and release it.</li>
+				<li>Alternate three more times on each side.</li>
+				<li>Experience the breath flowing in and out of the body.</li>
+			</ul>
+		</div>
+	</div>
 
-		// Hide scan button on Android.
-		var isAndroid =
-			navigator.userAgent.match(/Android/) ||
-			navigator.userAgent.match(/android/);
-		if (isAndroid)
-		{
-      		$('#id-screen-home-button-scan').hide();
-      	}
-      </script>
+	<div class="my-page" id="page-face">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/photo-face.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1>Feel Your Face</h1>
+			<ul>
+				<li>Become aware of your face.</li>
+				<li>Feel the forehead.</li>
+				<li>The eyebrows.</li>
+				<li>Eyes.</li>
+				<li>Nose.</li>
+				<li>Nostrils.</li>
+				<li>Air flowing through the nostrils.</li>
+				<li>Cheeks.</li>
+				<li>Jaw.</li>
+				<li>Lips.</li>
+				<li>Tongue.</li>
+				<li>Whole of the head.</li>
+				<li>The space surrounding the head.</li>
+			</ul>
+		</div>
+	</div>
 
-	</body>
+	<script src="lib/jquery.js"></script>
+	<script src="cordova.js"></script>
+	<script src="app.js"></script>
+</body>
 </html>
