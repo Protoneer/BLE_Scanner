@@ -8,6 +8,13 @@
 		<link rel="stylesheet" href="css/app.css" />
 		<title>Beacon Finder</title>
 		<script>
+		window.onerror = function(msg, url, linenumber) {
+			alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+			return true;
+		}
+		</script>
+		
+		<script>
 		if (window.hyper) { console.log = hyper.log; }
 
 		window.onerror = function(msg, url, line)
